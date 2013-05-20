@@ -287,7 +287,7 @@
               <div class="controls">
                 <input type="text" name="points" value="" placeholder="<?php echo $entry_points; ?>" id="input-points" />
                 
-                <a data-toggle="tooltip" title="<?php echo $help_points; ?>"><i class="icon-question-sign icon-large"></i></a>
+                <a data-toggle="tooltip" title="<?php echo $help_points; ?>"><i class="icon-info-sign"></i></a>
                 
                 </div>
             </div>
@@ -478,11 +478,11 @@ $('#button-history').on('click', function() {
 			$('.alert').remove();
 			
 			$('#button-history i').replaceWith('<i class="icon-spinner icon-spin"></i>');
-			$('#button-history').attr('disabled', true);
+			$('#button-history').prop('disabled', true);
 		},
 		complete: function() {
 			$('#button-history i').replaceWith('<i class="icon-plus-sign"></i>');
-			$('#button-history').attr('disabled', false);
+			$('#button-history').prop('disabled', false);
 		},
 		success: function(html) {
 			$('#history').html(html);
@@ -511,11 +511,11 @@ $('#button-transaction').on('click', function() {
 			$('.alert').remove();
 			
 			$('#button-transaction i').replaceWith('<i class="icon-spinner icon-spin"></i>');
-			$('#button-transaction').attr('disabled', true);
+			$('#button-transaction').prop('disabled', true);
 		},
 		complete: function() {
 			$('#button-transaction i').replaceWith('<i class="icon-plus-sign"></i>');
-			$('#button-transaction').attr('disabled', false);
+			$('#button-transaction').prop('disabled', false);
 		},
 		success: function(html) {
 			$('#transaction').html(html);
@@ -545,12 +545,12 @@ $('#button-reward').on('click', function() {
 			$('.alert').remove();
 			
 			$('#button-reward i').replaceWith('<i class="icon-spinner icon-spin"></i>');
-			$('#button-reward').attr('disabled', true);
+			$('#button-reward').prop('disabled', true);
 
 		},
 		complete: function() {
 			$('#button-reward i').replaceWith('<i class="icon-plus-sign"></i>');
-			$('#button-reward').attr('disabled', false);
+			$('#button-reward').prop('disabled', false);
 		},
 		success: function(html) {
 			$('#reward').html(html);

@@ -10,7 +10,7 @@
   <?php } ?>
   <div class="box">
     <div class="box-heading">
-      <h1><i class=""></i> <?php echo $heading_title; ?></h1>
+      <h1><i class="icon-puzzle-piece icon-large"></i> <?php echo $heading_title; ?></h1>
     </div>
     <div class="box-content form-horizontal">
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -20,7 +20,7 @@
             <button type="button" id="button-upload" class="btn" onclick="$('input[name=\'file\']').click();"><i class="icon-upload"></i> <?php echo $button_upload; ?></button>
 
             
-            <a data-toggle="tooltip" title="<?php echo $help_upload; ?>"><i class="icon-question-sign icon-large"></i></a>
+            <a data-toggle="tooltip" title="<?php echo $help_upload; ?>"><i class="icon-info-sign"></i></a>
             
             </div>
         </div>
@@ -30,7 +30,12 @@
             <div class="progress">
               <div class="bar" style="width: 60%;"></div>
             </div>
-            <div id="output"></div>
+            <div id="output">The Beow file will be over written:
+            
+            <table>
+            <tr><td></td></tr>
+            </table>
+            </div>
           </div>
         </div>
       </form>
@@ -51,11 +56,11 @@ $('#file').on('change', function() {
 		data: new FormData($(this).parent()[0]),
 		beforeSend: function() {
 			$('#button-upload i').replaceWith('<i class="icon-spinner icon-spin"></i>');
-			$('#button-upload').attr('disabled', true);
+			$('#button-upload').prop('disabled', true);
 		},	
 		complete: function() {
 			$('#button-upload i').replaceWith('<i class="icon-upload"></i>');
-			$('#button-upload').attr('disabled', false);
+			$('#button-upload').prop('disabled', false);
 		},		
 		success: function(html) {
 			$('#output').html(html);
@@ -94,14 +99,14 @@ function unzip(file) {
         url: 'index.php?route=extension/installer/upload&token=<?php echo $token; ?>',
         type: 'post',		
 		dataType: 'html',
-		data: new FormData($(this).parent()[0]),
+		data: ,
 		beforeSend: function() {
 			$('#button-upload i').replaceWith('<i class="icon-spinner"></i>');
-			$('#button-upload').attr('disabled', true);
+			$('#button-upload').prop('disabled', true);
 		},	
 		complete: function() {
 			$('#button-upload i').replaceWith('<i class="icon-upload"></i>');
-			$('#button-upload').attr('disabled', false);
+			$('#button-upload').prop('disabled', false);
 		},		
 		success: function(html) {
 			$('#output').html(html);

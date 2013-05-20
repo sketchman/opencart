@@ -19,8 +19,8 @@
         <div class="control-group">
           <label class="control-label" for="input-product"><?php echo $entry_product; ?></label>
           <div class="controls">
-            <input type="text" name="product" value="" id="input-product" />
-            <a data-toggle="tooltip" title="<?php echo $help_product; ?>"><i class="icon-question-sign icon-large"></i></a> <br />
+            <input type="text" name="product" value="" placeholder="<?php echo $entry_product; ?>" id="input-product" />
+            <a data-toggle="tooltip" title="<?php echo $help_product; ?>"><i class="icon-info-sign"></i></a>
             <br />
             <div id="featured-product" class="well well-small scrollbox">
               <?php foreach ($products as $product) { ?>
@@ -115,41 +115,34 @@
   </div>
 </div>
 <script type="text/javascript"><!--
-/*
 $('input[name=\'product\']').autocomplete({
-	delay: 500,
-	source: function(request, response) {
+	'source': function(request, response) {
 		$.ajax({
-			url: 'index.php?route=catalog/product/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
-			dataType: 'json',
-			success: function(json) {		
+			url: 'index.php?route=catalog/product/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
+			dataType: 'json',			
+			success: function(json) {
 				response($.map(json, function(item) {
 					return {
-						label: item.name,
-						value: item.product_id
+						label: item['name'],
+						value: item['product_id']
 					}
 				}));
 			}
 		});
-	}, 
-	select: function(event, ui) {
-		$('#featured-product' + ui.item.value).remove();
+	},
+	'select': function(item) {
+		$('#featured-product' + item['value']).remove();
 		
-		$('#featured-product').append('<div id="featured-product' + ui.item.value + '"><i class="icon-minus-sign"></i> ' + ui.item.label + '<input type="hidden" value="' + ui.item.value + '" /></div>');
-		
+		$('#featured-product').append('<div id="featured-product' + item['value'] + '"><i class="icon-minus-sign"></i> ' + item['label'] + '<input type="hidden" value="' + item['value'] + '" /></div>');	
+	
 		data = $.map($('#featured-product input'), function(element){
 			return $(element).attr('value');
 		});
 						
-		$('input[name=\'featured_product\']').attr('value', data.join());
-					
-		return false;
-	},
-	focus: function(event, ui) {
-      	return false;
-   	}
+		$('input[name=\'featured_product\']').attr('value', data.join());	
+	}	
 });
-*/
+
 $('#featured-product').delegate('.icon-minus-sign', 'click', function() {
 	$(this).parent().remove();
 

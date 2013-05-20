@@ -387,8 +387,7 @@ class ControllerCatalogProduct extends Controller {
 				
 		$this->data['text_enabled'] = $this->language->get('text_enabled');		
 		$this->data['text_disabled'] = $this->language->get('text_disabled');		
-		$this->data['text_no_results'] = $this->language->get('text_no_results');		
-		$this->data['text_image_manager'] = $this->language->get('text_image_manager');		
+		$this->data['text_no_results'] = $this->language->get('text_no_results');	
 			
 		$this->data['column_image'] = $this->language->get('column_image');		
 		$this->data['column_name'] = $this->language->get('column_name');		
@@ -533,7 +532,6 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['text_option'] = $this->language->get('text_option');
 		$this->data['text_option_value'] = $this->language->get('text_option_value');
 		$this->data['text_select'] = $this->language->get('text_select');
-		$this->data['text_none'] = $this->language->get('text_none');
 		$this->data['text_percent'] = $this->language->get('text_percent');
 		$this->data['text_amount'] = $this->language->get('text_amount');
 
@@ -565,6 +563,7 @@ class ControllerCatalogProduct extends Controller {
     	$this->data['entry_weight_class'] = $this->language->get('entry_weight_class');
     	$this->data['entry_weight'] = $this->language->get('entry_weight');
 		$this->data['entry_dimension'] = $this->language->get('entry_dimension');
+		$this->data['entry_length_class'] = $this->language->get('entry_length_class');
 		$this->data['entry_length'] = $this->language->get('entry_length');
 		$this->data['entry_width'] = $this->language->get('entry_width');
 		$this->data['entry_height'] = $this->language->get('entry_height');
@@ -1331,7 +1330,7 @@ class ControllerCatalogProduct extends Controller {
 			if (isset($this->request->get['limit'])) {
 				$limit = $this->request->get['limit'];	
 			} else {
-				$limit = 20;	
+				$limit = 5;	
 			}			
 						
 			$data = array(

@@ -240,7 +240,7 @@
                 <?php } ?>
               </label>
             </div>
-            <a onclick="$(this).parent().find(':checkbox').attr('checked', true);"><?php echo $text_select_all; ?></a> / <a onclick="$(this).parent().find(':checkbox').attr('checked', false);"><?php echo $text_unselect_all; ?></a> </div>
+            <a onclick="$(this).parent().find(':checkbox').prop('checked', true);"><?php echo $text_select_all; ?></a> / <a onclick="$(this).parent().find(':checkbox').prop('checked', false);"><?php echo $text_unselect_all; ?></a></div>
         </div>
         <div class="control-group">
           <div class="control-label"><?php echo $entry_international; ?></div>
@@ -391,7 +391,7 @@
                 <?php } ?>
               </label>
             </div>
-            <a onclick="$(this).parent().find(':checkbox').attr('checked', true);"><?php echo $text_select_all; ?></a> / <a onclick="$(this).parent().find(':checkbox').attr('checked', false);"><?php echo $text_unselect_all; ?></a> </div>
+            <a onclick="$(this).parent().find(':checkbox').prop('checked', true);"><?php echo $text_select_all; ?></a> / <a onclick="$(this).parent().find(':checkbox').prop('checked', false);"><?php echo $text_unselect_all; ?></a></div>
         </div>
         <div class="control-group">
           <label class="control-label" for="input-size"><?php echo $entry_size; ?></label>
@@ -442,7 +442,7 @@
             <input type="text" name="usps_width" value="<?php echo $usps_width; ?>" placeholder="<?php echo $entry_width; ?>" id="input-width" class="input-mini" />
             <input type="text" name="usps_height" value="<?php echo $usps_height; ?>" placeholder="<?php echo $entry_height; ?>" id="input-height" class="input-mini" />
             
-            <a data-toggle="tooltip" title="<?php echo $help_dimension; ?>"><i class="icon-question-sign icon-large"></i></a>
+            <a data-toggle="tooltip" title="<?php echo $help_dimension; ?>"><i class="icon-info-sign"></i></a>
             
             <?php if ($error_dimension) { ?>
             <span class="error"><?php echo $error_dimension; ?></span>
@@ -471,7 +471,7 @@
               <?php } ?>
             </label>
 
-            <a data-toggle="tooltip" title="<?php echo $help_display_time; ?>"><i class="icon-question-sign icon-large"></i></a>
+            <a data-toggle="tooltip" title="<?php echo $help_display_time; ?>"><i class="icon-info-sign"></i></a>
             </div>
         </div>
         <div class="control-group">
@@ -495,7 +495,7 @@
               <?php echo $text_no; ?>
               <?php } ?>
             </label>
-            <a data-toggle="tooltip" title="<?php echo $help_display_weight; ?>"><i class="icon-question-sign icon-large"></i></a>
+            <a data-toggle="tooltip" title="<?php echo $help_display_weight; ?>"><i class="icon-info-sign"></i></a>
           </div>
         </div>
         <div class="control-group">
@@ -512,7 +512,7 @@
             </select>
 
             
-            <a data-toggle="tooltip" title="<?php echo $help_weight_class; ?>"><i class="icon-question-sign icon-large"></i></a>
+            <a data-toggle="tooltip" title="<?php echo $help_weight_class; ?>"><i class="icon-info-sign"></i></a>
             </div>
         </div>
         <div class="control-group">
@@ -579,7 +579,7 @@
             </select>
 
             
-            <a data-toggle="tooltip" title="<?php echo $help_debug; ?>"><i class="icon-question-sign icon-large"></i></a>
+            <a data-toggle="tooltip" title="<?php echo $help_debug; ?>"><i class="icon-info-sign"></i></a>
             </div>
         </div>
       </form>

@@ -11,7 +11,7 @@
   </div>
   <?php } ?>
   <div class="box">
-    <div class="page-header">
+    <div class="box-heading">
       <h1><i class="icon-edit"></i> <?php echo $heading_title; ?></h1>
     </div>
     <div class="box-content">
@@ -66,25 +66,15 @@
             <div class="control-group">
               <label class="control-label" for="input-parent"><?php echo $entry_parent; ?></label>
               <div class="controls">
+                <input type="text" name="path" value="<?php echo $path; ?>" placeholder="<?php echo $entry_parent; ?>" id="input-parent" />
                 <input type="hidden" name="parent_id" value="<?php echo $parent_id; ?>" />
-                <input type="text" name="path" value="<?php echo $path; ?>" placeholder="<?php echo $entry_parent; ?>" id="input-parent" data-toggle="dropdown" data-target="#dropdown" />
-                
-                
-                <div class="dropdown" id="dropdown">
-                  <ul class="dropdown-menu">
-                    <li data-value="0"><a href="#"><?php echo $text_none; ?></a></li>
-                  </ul>
-                </div>
-                
-                
-                
               </div>
             </div>
             <div class="control-group">
               <label class="control-label" for="input-filter"><?php echo $entry_filter; ?></label>
               <div class="controls">
                 <input type="text" name="filter" value="" placeholder="<?php echo $entry_filter; ?>" id="input-filter" />
-                <a data-toggle="tooltip" title="<?php echo $help_filter; ?>"><i class="icon-question-sign icon-large"></i></a> <br />
+                <a data-toggle="tooltip" title="<?php echo $help_filter; ?>"><i class="icon-info-sign"></i></a> <br />
                 <br />
                 <div id="category-filter" class="well well-small scrollbox">
                   <?php foreach ($category_filters as $category_filter) { ?>
@@ -98,42 +88,40 @@
             <div class="control-group">
               <div class="control-label"><?php echo $entry_store; ?></div>
               <div class="controls">
-                <div class="well well-small scrollbox">
-                  <label class="checkbox">
-                    <?php if (in_array(0, $category_store)) { ?>
-                    <input type="checkbox" name="category_store[]" value="0" checked="checked" />
-                    <?php echo $text_default; ?>
-                    <?php } else { ?>
-                    <input type="checkbox" name="category_store[]" value="0" />
-                    <?php echo $text_default; ?>
-                    <?php } ?>
-                  </label>
-                  <?php foreach ($stores as $store) { ?>
-                  <label class="checkbox">
-                    <?php if (in_array($store['store_id'], $category_store)) { ?>
-                    <input type="checkbox" name="category_store[]" value="<?php echo $store['store_id']; ?>" checked="checked" />
-                    <?php echo $store['name']; ?>
-                    <?php } else { ?>
-                    <input type="checkbox" name="category_store[]" value="<?php echo $store['store_id']; ?>" />
-                    <?php echo $store['name']; ?>
-                    <?php } ?>
-                  </label>
+                <label class="checkbox">
+                  <?php if (in_array(0, $category_store)) { ?>
+                  <input type="checkbox" name="category_store[]" value="0" checked="checked" />
+                  <?php echo $text_default; ?>
+                  <?php } else { ?>
+                  <input type="checkbox" name="category_store[]" value="0" />
+                  <?php echo $text_default; ?>
                   <?php } ?>
-                </div>
+                </label>
+                <?php foreach ($stores as $store) { ?>
+                <label class="checkbox">
+                  <?php if (in_array($store['store_id'], $category_store)) { ?>
+                  <input type="checkbox" name="category_store[]" value="<?php echo $store['store_id']; ?>" checked="checked" />
+                  <?php echo $store['name']; ?>
+                  <?php } else { ?>
+                  <input type="checkbox" name="category_store[]" value="<?php echo $store['store_id']; ?>" />
+                  <?php echo $store['name']; ?>
+                  <?php } ?>
+                </label>
+                <?php } ?>
               </div>
             </div>
             <div class="control-group">
               <label class="control-label" for="input-keyword"><?php echo $entry_keyword; ?></label>
               <div class="controls">
                 <input type="text" name="keyword" value="<?php echo $keyword; ?>" placeholder="<?php echo $entry_keyword; ?>" id="input-keyword" />
-                <a data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><i class="icon-question-sign icon-large"></i></a></div>
+                <a data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><i class="icon-info-sign"></i></a></div>
             </div>
             <div class="control-group">
               <label class="control-label" for="input-name"><?php echo $entry_image; ?></label>
               <div class="controls">
                 <ul class="thumbnails">
                   <li><a class="thumbnail" href="#"><img alt="" src="<?php echo $thumb; ?>"></a>
-                    <ul class="thumbnail-option inline">
+                    <ul class="thumbnail-option">
                       <li><a href="#" title="Edit"><span class="icon-edit"></span></a></li>
                       <li><a href="#" title="Delete"><span class="icon-trash"></span></a></li>
                     </ul>
@@ -156,13 +144,13 @@
                   <input type="checkbox" name="top" value="1" id="input-top" />
                   <?php } ?>
                 </label>
-                <a data-toggle="tooltip" data-original-title="<?php echo $help_top; ?>"><i class="icon-question-sign icon-large"></i></a></div>
+                <a data-toggle="tooltip" data-original-title="<?php echo $help_top; ?>"><i class="icon-info-sign"></i></a></div>
             </div>
             <div class="control-group">
               <label class="control-label" for="input-column"><?php echo $entry_column; ?></label>
               <div class="controls">
                 <input type="text" name="column" value="<?php echo $column; ?>" placeholder="<?php echo $entry_column; ?>" id="input-column" class="input-mini" />
-                <a data-toggle="tooltip" title="<?php echo $help_column; ?>"><i class="icon-question-sign icon-large"></i></a></div>
+                <a data-toggle="tooltip" title="<?php echo $help_column; ?>"><i class="icon-info-sign"></i></a></div>
             </div>
             <div class="control-group">
               <label class="control-label" for="input-sort-order"><?php echo $entry_sort_order; ?></label>
@@ -207,9 +195,7 @@
                       <?php } ?>
                     </select></td>
                 </tr>
-              </tbody>
-              <?php foreach ($stores as $store) { ?>
-              <tbody>
+                <?php foreach ($stores as $store) { ?>
                 <tr>
                   <td class="left"><?php echo $store['name']; ?></td>
                   <td class="left"><select name="category_layout[<?php echo $store['store_id']; ?>][layout_id]">
@@ -223,8 +209,8 @@
                       <?php } ?>
                     </select></td>
                 </tr>
+                <?php } ?>
               </tbody>
-              <?php } ?>
             </table>
           </div>
         </div>
@@ -241,7 +227,7 @@
     <h3 id="modal-label"><?php echo $text_image_manager; ?></h3>
   </div>
   <div class="modal-body">
-    <iframe src="index.php?route=common/filemanager&token=<?php echo $token; ?>&field=' + encodeURIComponent(field) + '" style="width: 90%; height: 90%;" frameborder="no" scrolling="auto"></iframe>
+    <iframe src="index.php?route=common/filemanager&token=<?php echo $token; ?>" style="width: 90%; height: 90%;" frameborder="no" scrolling="auto"></iframe>
   </div>
 </div>
 <script type="text/javascript" src="view/javascript/ckeditor/ckeditor.js"></script> 
@@ -258,78 +244,60 @@ CKEDITOR.replace('input-description<?php echo $language['language_id']; ?>', {
 <?php } ?>
 //--></script> 
 <script type="text/javascript"><!--
-var timer = null;
-
-$('input[name=\'path\']').on('click keyup', function() {
-	var input = this;
-	
-	if (timer != null) {
-		clearTimeout(timer);
-	}
-	
-	timer = setTimeout(function(){
+$('input[name=\'path\']').autocomplete({
+	'source': function(request, response) {
 		$.ajax({
-			url: 'index.php?route=catalog/category/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent($(input).val()),
-			dataType: 'json',	
+			url: 'index.php?route=catalog/category/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
+			dataType: 'json',			
 			success: function(json) {
-				html = '<li data-value="0"><a><?php echo $text_none; ?></a></li>';
+				json.unshift({
+					'category_id': 0,
+					'name': '<?php echo $text_none; ?>'
+				});
 				
-				if (json) {
-					for (i = 0; i < json.length; i++) {
-						html += '<li data-value="' + json[i]['category_id'] + '"><a href="#">' + json[i]['name'] + '</a></li>';
-					}
-				}
-				
-				$('#dropdown ul').html(html);
-			}
-		});
-	}, 500);
-});
-
-$('#dropdown').delegate('a', 'click', function(e) {
-	e.preventDefault();
-	
-	$('input[name=\'path\']').val($(this).text());
-	$('input[name=\'parent_id\']').val($(this).parent().attr('data-value'));
-	
-	alert($(this).parent().attr('data-value'));
-});
-//--></script> 
-<script type="text/javascript"><!--
-/*
-// Filter
-$('input[name=\'filter\']').autocomplete({
-	delay: 500,
-	source: function(request, response) {
-		$.ajax({
-			url: 'index.php?route=catalog/filter/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
-			dataType: 'json',
-			success: function(json) {		
 				response($.map(json, function(item) {
 					return {
-						label: item.name,
-						value: item.filter_id
+						label: item['name'],
+						value: item['category_id']
 					}
 				}));
 			}
 		});
-	}, 
-	select: function(event, ui) {
-		$('#category-filter' + ui.item.value).remove();
-		
-		$('#category-filter').append('<div id="category-filter' + ui.item.value + '"><i class="icon-minus-sign"></i> ' + ui.item.label + '<input type="hidden" name="category_filter[]" value="' + ui.item.value + '" /></div>');
-				
-		return false;
 	},
-	focus: function(event, ui) {
-      return false;
-   }
+	'select': function(item) {
+		$('input[name=\'path\']').val(item['label']);
+		$('input[name=\'parent_id\']').val(item['value']);
+	}	
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('input[name=\'filter\']').autocomplete({
+	'source': function(request, response) {
+		$.ajax({
+			url: 'index.php?route=catalog/filter/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
+			dataType: 'json',			
+			success: function(json) {
+				response($.map(json, function(item) {
+					return {
+						label: item['name'],
+						value: item['filter_id']
+					}
+				}));
+			}
+		});
+	},
+	'select': function(item) {
+		$('input[name=\'filter\']').val('');
+		
+		$('#category-filter' + item['value']).remove();
+		
+		$('#category-filter').append('<div id="category-filter' + item['value'] + '"><i class="icon-minus-sign"></i> ' + item['label'] + '<input type="hidden" name="category_filter[]" value="' + item['value'] + '" /></div>');
+	}	
 });
 
-$('#category-filter  .icon-minus-sign').on('click', function() {
-	$(this).parent().remove();	
+$('#category-filter').delegate('.icon-minus-sign', 'click', function() {
+	$(this).parent().remove();
 });
-*/
 //--></script> 
 <script type="text/javascript"><!--
 function image_upload(field, thumb) {

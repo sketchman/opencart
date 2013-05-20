@@ -232,7 +232,7 @@
               <?php } ?>
             </select>
             
-            <a data-toggle="tooltip" title="<?php echo $help_position; ?>"><i class="icon-question-sign icon-large"></i></a>
+            <a data-toggle="tooltip" title="<?php echo $help_position; ?>"><i class="icon-info-sign"></i></a>
             
             </div>
         </div>
@@ -304,17 +304,14 @@ $('select[name=\'type\']').on('change', function() {
 		$('#display-value').show();
 	}
 	
-	$('input[name=\'value\']').datepicker('destroy');
+	$('input[name=\'value\']').attr('type', 'text');
 	
 	if (this.value == 'date') {
-		 $('input[name=\'value\']').datepicker({dateFormat: 'yy-mm-dd'});
+		 $('input[name=\'value\']').attr('type', 'date');
 	} else if (this.value == 'time') {
-		$('input[name=\'value\']').timepicker({timeFormat: 'h:m'});	
+		$('input[name=\'value\']').attr('type', 'time');
 	} else if (this.value == 'datetime') {
-		$('input[name=\'value\']').datetimepicker({
-			dateFormat: 'yy-mm-dd',
-			timeFormat: 'h:m'
-		});	
+		$('input[name=\'value\']').attr('type', 'datetime-local');
 	}
 });
 

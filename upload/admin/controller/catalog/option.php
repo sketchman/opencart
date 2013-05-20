@@ -482,7 +482,7 @@ class ControllerCatalogOption extends Controller {
 			$data = array(
 				'filter_name' => $this->request->get['filter_name'],
 				'start'       => 0,
-				'limit'       => 20
+				'limit'       => 5
 			);
 			
 			$options = $this->model_catalog_option->getOptions($data);
@@ -533,7 +533,7 @@ class ControllerCatalogOption extends Controller {
 				if ($option['type'] == 'date' || $option['type'] == 'datetime' || $option['type'] == 'time') {
 					$type = $this->language->get('text_date');
 				}
-												
+				
 				$json[] = array(
 					'option_id'    => $option['option_id'],
 					'name'         => strip_tags(html_entity_decode($option['name'], ENT_QUOTES, 'UTF-8')),

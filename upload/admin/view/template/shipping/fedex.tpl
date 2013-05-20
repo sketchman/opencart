@@ -97,7 +97,7 @@
               <?php } ?>
             </label>
             <?php } ?>
-            <a onclick="$(this).parent().find(':checkbox').attr('checked', true);"><?php echo $text_select_all; ?></a> / <a onclick="$(this).parent().find(':checkbox').attr('checked', false);"><?php echo $text_unselect_all; ?></a> </div>
+            <a onclick="$(this).parent().find(':checkbox').prop('checked', true);"><?php echo $text_select_all; ?></a> / <a onclick="$(this).parent().find(':checkbox').prop('checked', false);"><?php echo $text_unselect_all; ?></a></div>
         </div>
         <div class="control-group">
           <label class="control-label" for="input-dropoff-type"><?php echo $entry_dropoff_type; ?></label>
@@ -213,7 +213,7 @@
             </label>
 
             
-            <a data-toggle="tooltip" title="<?php echo $help_display_time; ?>"><i class="icon-question-sign icon-large"></i></a>
+            <a data-toggle="tooltip" title="<?php echo $help_display_time; ?>"><i class="icon-info-sign"></i></a>
             
             </div>
         </div>
@@ -240,7 +240,7 @@
             </label>
 
             
-            <a data-toggle="tooltip" title="<?php echo $help_display_weight; ?>"><i class="icon-question-sign icon-large"></i></a>
+            <a data-toggle="tooltip" title="<?php echo $help_display_weight; ?>"><i class="icon-info-sign"></i></a>
             
             </div>
         </div>
@@ -258,7 +258,7 @@
             </select>
 
             
-            <a data-toggle="tooltip" title="<?php echo $help_weight_class; ?>"><i class="icon-question-sign icon-large"></i></a>
+            <a data-toggle="tooltip" title="<?php echo $help_weight_class; ?>"><i class="icon-info-sign"></i></a>
             </div>
         </div>
         <div class="control-group">
